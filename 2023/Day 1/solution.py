@@ -32,4 +32,4 @@ for string in strings:
     line_sum = int(first_num + last_num)
     part_two_sum += line_sum
 
-print(f"Part one: {part_one_sum}\nPart two: {part_two_sum}")
+print(f"Part one: {part_one_sum} | Part two: {part_two_sum}")
