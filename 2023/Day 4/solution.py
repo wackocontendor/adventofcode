@@ -20,8 +20,6 @@ for line in strings:
 
 ######## Part 2 ########
 
-#read file line by line
-
 part_two_sum = 0
 num_dict = {}
 
