@@ -39,3 +39,30 @@ for i in array:
 print(on_count)
 
 ######### part two #########
+array = [['0'] * 1000 for i in range(1001)]
+
+for line in data:
+    chunks = line.split()
+    if chunks[0] == 'turn':
+        if chunks[1] == 'on':
+            row_start, row_end, col_start, col_end = boundaries(chunks, 2)
+            for i in range(row_start, row_end):
+                for j in range(col_start,col_end):
+                    array[i][j] = str(int(array[i][j]) + 1)
+        if chunks[1] == 'off':
+            row_start, row_end, col_start, col_end = boundaries(chunks, 2)
+            for i in range(row_start, row_end):
+                for j in range(col_start,col_end):
+                    if array[i][j] == '0':
+                        continue
+                    array[i][j] = str(int(array[i][j]) - 1)
+    if chunks[0] == 'toggle':
+            row_start, row_end, col_start, col_end = boundaries(chunks, 1)
+            for i in range(row_start, row_end):
+                for j in range(col_start,col_end):
+                    array[i][j] = str(int(array[i][j]) + 2)
+total_brightness = 0
+for i in array:
+    for j in i:
+        total_brightness += int(j)
+print(total_brightness)
